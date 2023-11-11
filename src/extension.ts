@@ -40,12 +40,10 @@ export function activate(context: vscode.ExtensionContext) {
         console.log("RUN");
         let lines = findLineWithImportDeclaration(document);
 
-        console.log(lines);
         let i = 0;
 
         editor.edit((editBuilder) => {
           for (let line of lines) {
-            console.log(line);
             const start = new vscode.Position(line, 0);
             const end = new vscode.Position(line + 1, 0);
             const range = new vscode.Range(start, end);
@@ -69,7 +67,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   context.subscriptions.push(onsave);
-  context.subscriptions.push(disposable);
+  // context.subscriptions.push(disposable);
 }
 
 function findLineWithImportDeclaration(

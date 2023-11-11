@@ -1,7 +1,13 @@
 {
   "name": "jsdoc-prettier",
   "displayName": "jsdoc-prettier",
-  "description": "",
+  "publisher": "yokowasis",
+  "icon": "icon.jpeg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yokowasis/jsdoc-prettier"
+  },
+  "description": "This plugin has only one purpose, to convert jsdoc import into typedef in move the typedef to the top of the document.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.84.0"
@@ -10,18 +16,10 @@
     "Other"
   ],
   "activationEvents": [
-    "onStartup",
+    "onStartupFinished",
     "onDidSaveTextDocument"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "jsdoc-prettier.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
