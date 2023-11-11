@@ -1,46 +1,47 @@
 {
-  "name": "jsdoc-prettier",
-  "displayName": "jsdoc-prettier",
-  "publisher": "yokowasis",
-  "icon": "icon.jpeg",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yokowasis/jsdoc-prettier"
-  },
-  "description": "This plugin has only one purpose, to convert jsdoc import into typedef in move the typedef to the top of the document.",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.84.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onStartupFinished",
-    "onDidSaveTextDocument"
-  ],
-  "main": "./out/extension.js",
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.3",
-    "@types/node": "18.x",
-    "@types/vscode": "^1.84.0",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "@vscode/test-electron": "^2.3.6",
-    "eslint": "^8.52.0",
-    "glob": "^10.3.10",
-    "mocha": "^10.2.0",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "ovsx": "^0.8.3"
-  }
+    "name": "jsdoc-prettier",
+    "displayName": "jsdoc-prettier",
+    "publisher": "yokowasis",
+    "icon": "icon.jpeg",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yokowasis/jsdoc-prettier"
+    },
+    "description": "This plugin has only one purpose, to convert jsdoc import into typedef in move the typedef to the top of the document.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.84.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished",
+        "onDidSaveTextDocument"
+    ],
+    "main": "./out/extension.js",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.3",
+        "@types/node": "18.x",
+        "@types/vscode": "^1.84.0",
+        "@typescript-eslint/eslint-plugin": "^6.9.0",
+        "@typescript-eslint/parser": "^6.9.0",
+        "@vscode/test-electron": "^2.3.6",
+        "eslint": "^8.52.0",
+        "glob": "^10.3.10",
+        "mocha": "^10.2.0",
+        "typescript": "^5.2.2"
+    },
+    "dependencies": {
+        "ovsx": "^0.8.3"
+    },
+    "license": "MIT"
 }
