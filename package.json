@@ -9,7 +9,10 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartup",
+    "onDidSaveTextDocument"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

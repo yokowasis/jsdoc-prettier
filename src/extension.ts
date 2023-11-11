@@ -2,6 +2,8 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 
+import { docParse } from "./test.js";
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -25,12 +27,66 @@ export function activate(context: vscode.ExtensionContext) {
 
   let onsave = vscode.workspace.onDidSaveTextDocument(
     (document: vscode.TextDocument) => {
-      console.log("SAVED");
+      console.log("FIRED");
+      const editor = vscode.window.activeTextEditor;
+
+      console.log(document.languageId);
+
+      if (
+        editor &&
+        (document.languageId === "javascript" ||
+          document.languageId === "javascriptreact")
+      ) {
+        console.log("RUN");
+        let lines = findLineWithImportDeclaration(document);
+
+        console.log(lines);
+        let i = 0;
+
+        editor.edit((editBuilder) => {
+          for (let line of lines) {
+            console.log(line);
+            const start = new vscode.Position(line, 0);
+            const end = new vscode.Position(line + 1, 0);
+            const range = new vscode.Range(start, end);
+
+            const s = document.lineAt(line).text;
+            const parsed = docParse(s);
+
+            // delete old line, insert new line
+            editBuilder.delete(range);
+            editBuilder.insert(start, parsed.type + "\n");
+            editBuilder.insert(
+              new vscode.Position(1, 0),
+              parsed.typedef + "\n"
+            );
+
+            // editBuilder.replace(range, updatedLine);
+          }
+        });
+      }
     }
   );
 
   context.subscriptions.push(onsave);
   context.subscriptions.push(disposable);
+}
+
+function findLineWithImportDeclaration(
+  document: vscode.TextDocument
+): number[] {
+  const linesToReplace: number[] = [];
+
+  for (let line = 0; line < document.lineCount; line++) {
+    const text = document.lineAt(line).text;
+    if (
+      text.includes("/** @type {import(") ||
+      text.includes("* @param {import(")
+    ) {
+      linesToReplace.push(line);
+    }
+  }
+  return linesToReplace;
 }
 
 // This method is called when your extension is deactivated
