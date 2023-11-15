@@ -1,20 +1,20 @@
-const x = [];
+// const x = [];
 
-x.push(`let s = /** @type {import("@/type").TypeOfSubject} */ ();`);
-x.push(`/** @type {import("@/type").TypeOfSubject[]} */`);
-x.push(`/** @type {import("@/type").TypeOfSubject} */`);
-x.push(
-  `* @param {import("@/app/api/siswa/add/route").ApiSiswaAddPayload} students`
-);
-x.push(`let s = /** @type {import("@/type").TypeOfSubject[]} */ ([]);`);
-x.push(`/** @type {import("@/component/types").ReactRef<HTMLSelectElement>}`);
-x.push(
-  `/** @type {import("@/component/types").ReactState<TypeOfDataSoal[]>} */`
-);
+// x.push(`let s = /** @type {import("@/type").TypeOfSubject} */ ();`);
+// x.push(`/** @type {import("@/type").TypeOfSubject[]} */`);
+// x.push(`/** @type {import("@/type").TypeOfSubject} */`);
+// x.push(
+//   `* @param {import("@/app/api/siswa/add/route").ApiSiswaAddPayload} students`
+// );
+// x.push(`let s = /** @type {import("@/type").TypeOfSubject[]} */ ([]);`);
+// x.push(`/** @type {import("@/component/types").ReactRef<HTMLSelectElement>}`);
+// x.push(
+//   `/** @type {import("@/component/types").ReactState<TypeOfDataSoal[]>} */`
+// );
 
-for (const s of x) {
-  console.log(docParse(s));
-}
+// for (const s of x) {
+//   console.log(docParse(s));
+// }
 
 /**
  *
